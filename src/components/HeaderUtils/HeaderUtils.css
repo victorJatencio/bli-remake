@@ -1,0 +1,43 @@
+.headerUtils {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+}
+
+.headerUtils__user {
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.headerUtils__user .headerUtils__userImage {
+  width: 36px !important;
+  height: 36px !important;
+}
+
+.headerUtils__user > span {
+  font-size: 13px;
+  margin: 0 10px;
+}
+
+.headerUtils__help {
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.headerUtils__help > p {
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.headerUtils__help > .MuiSvgIcon-root {
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+.headerUtils__pipe {
+  opacity: 0.7;
+}
