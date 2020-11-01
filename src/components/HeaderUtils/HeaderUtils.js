@@ -9,7 +9,7 @@ function HeaderUtils() {
   return (
     <div className="headerUtils">
       <div className="headerUtils__user">
-        <Avatar className="headerUtils__userImage"/>
+        <Avatar className="headerUtils__userImage" src="https://lh3.googleusercontent.com/ogw/ADGmqu-Kxgm27oH6nayScz_R2ZrhST5g8GEYcpyJB6U4=s192-c-mo"/>
         <span>Hi Victor</span>
         <ExpandMoreOutlinedIcon/>
       </div>
