@@ -1,0 +1,26 @@
+.bigHero {
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+
+.bigHero__content {
+  max-width: 1024px;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.bigHero__input {
+  display: none;
+}
+
+.bigHero__upload {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  color: #fff !important;
+}
