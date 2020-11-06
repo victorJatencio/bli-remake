@@ -1,5 +1,8 @@
 .bigHero {
   height: 400px;
+  position: relative;
+  margin: auto;
+  border-radius: 10px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

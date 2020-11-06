@@ -15,23 +15,25 @@ function NavigationTabs() {
 
   return (
     <div className="navigationTabs">
-      <Paper className="navigationTabs__paper">
-        <p>Select Database</p>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          centered
-        >
-          <Tab label="My bliQ" />
-          <Tab label="Search Device" />
-          <Tab label="Compare" />
-          <Tab label="Calculate" />
-          <Tab label="Build" />
-          <Tab label="Research" />
-        </Tabs>
-      </Paper>
+      <div className="navigationTabs__nav">
+        <div className="navigationTabs__options">Select Database</div>
+        <Paper className="navigationTabs__paper">
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+            centered
+          >
+            <Tab label="My bliQ" />
+            <Tab label="Search Device" />
+            <Tab label="Compare" />
+            <Tab label="Calculate" />
+            <Tab label="Build" />
+            <Tab label="Research" />
+          </Tabs>
+        </Paper>
+      </div>
     </div>
   )
 }

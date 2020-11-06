@@ -1,0 +1,18 @@
+.widgetNav {
+  max-width: 1024px;
+  position: relative;
+  margin: auto;
+  margin-top: -10px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 18%);
+}
+
+.widgetNav__container {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.widgetNav__container > h3 {
+  margin-right: 30px;
+}
