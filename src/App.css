@@ -4,12 +4,28 @@
 }
 
 .app__nav {
-  flex: 0.1;
+  position: fixed;
+  height: 100vh;
+  z-index: 999;
 }
 
 .container {
-  flex: 0.9;
   padding: 0 15px;
   margin-top: 24px;
+  width: 85%;
   max-width: 1296px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* If nav is closed */
+.sideNav.openNav > h4 {
+  transition: opacity 0.2s 0.3s ease;
+  opacity: 1 !important;
+}
+.sideNav.openNav > .sideNav__menuGroup > .sidebar_nav .sidenavLink > h3 {
+  transition: opacity 0.2s 0.3s ease;
+  opacity: 1 !important;
+  /* display: block !important; */
 }

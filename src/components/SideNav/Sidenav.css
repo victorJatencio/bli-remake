@@ -1,13 +1,30 @@
 .sideNav {
-  /* position: fixed; */
-  width: 280px;
+  width: 65px;
   height: 100%;
   background: #fff;
   padding: 0;
+  overflow-x: hidden;
   /* webkit-box-shadow: 0 0 30px rgba(146, 153, 184, 0.1); */
   box-shadow: 0 0 30px rgba(146, 153, 184, 0.1);
   /* webkit-transition: all 0.3s ease; */
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   z-index: 999;
+}
+
+.sideNav.openNav {
+  width: 220px;
+}
+
+.sideNav > h4 {
+  font-weight: normal;
+  color: #4d547a;
+  padding: 20px;
+  opacity: 0;
+}
+
+.sideNav > hr {
+  height: 1px;
+  background-color: lightgray;
+  border: 0px solid lightgray;
 }

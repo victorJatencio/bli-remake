@@ -1,0 +1,20 @@
+.sidenavLink {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.sidenavLink:hover {
+  background-color: rgba(170, 193, 250, 0.2);
+}
+.sidenavLink__icon > .MuiSvgIcon-root {
+  color: #3f51b5;
+}
+.sidenavLink > h3 {
+  font-weight: normal;
+  font-size: medium;
+  margin-left: 12px;
+  color: #3f51b5;
+  opacity: 0;
+  /* display: none; */
+}
