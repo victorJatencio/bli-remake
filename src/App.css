@@ -3,12 +3,6 @@
   height: 100vh;
 }
 
-.app__nav {
-  position: fixed;
-  height: 100vh;
-  z-index: 999;
-}
-
 .container {
   padding: 0 15px;
   margin-top: 24px;
@@ -17,6 +11,24 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  animation-name: shiftLeft;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
+
+.container-shift {
+  padding: 0 15px;
+  margin-top: 24px;
+  width: 82%;
+  max-width: 1296px;
+  position: relative;
+  margin-left: auto;
+  margin-right: 0;
+  animation-name: shiftRight;
+  animation-duration: 0.1s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
 }
 
 /* If nav is closed */
@@ -28,4 +40,26 @@
   transition: opacity 0.2s 0.3s ease;
   opacity: 1 !important;
   /* display: block !important; */
+}
+
+@keyframes shiftLeft {
+  0% {
+    margin-right: 20px;
+    transform: translateX(0%);
+  }
+  100% {
+    margin-right: 20px;
+    transform: translateX(-6%);
+  }
+}
+
+@keyframes shiftRight {
+  0% {
+    margin-right: 20px;
+    transform: translateX(-6%);
+  }
+  100% {
+    margin-right: 20px;
+    transform: translateX(0%);
+  }
 }

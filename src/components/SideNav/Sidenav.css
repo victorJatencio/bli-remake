@@ -4,9 +4,8 @@
   background: #fff;
   padding: 0;
   overflow-x: hidden;
-  /* webkit-box-shadow: 0 0 30px rgba(146, 153, 184, 0.1); */
+  position: fixed;
   box-shadow: 0 0 30px rgba(146, 153, 184, 0.1);
-  /* webkit-transition: all 0.3s ease; */
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   z-index: 999;

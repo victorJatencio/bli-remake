@@ -11,19 +11,15 @@ function App() {
 
   const [{collapsed}, dispatch] = useDataLayerValue();
 
-  const reorderLayout = () => {
-    document.getElementsByClassName("app__nav").style.position = "relative";
-  }
-
   return (
     <div className="app">
       <Header/>
       
       <div className="app__body">
-        <div className={`${collapsed ? reorderLayout : "app__nav" }`}>
+        <div className="app__nav">
           <Sidenav/>
         </div>
-        <div className="container">
+        <div className={`${collapsed ? "container-shift" : "container"}`}>
           <Maindash/>
         </div>
       </div>

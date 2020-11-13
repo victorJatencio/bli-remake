@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./Header.css";
 import logo from "../../images/bliQlogoWhite.svg"
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
@@ -34,7 +34,7 @@ function Header() {
 
         <div className="header__center">
           <div className="header__search">
-            <input type="text"/>
+            <input className="header__input" type="text" placeholder="Search Manufacturers, Product Name or Model"/>
             <SearchOutlinedIcon/>
           </div>
         </div>

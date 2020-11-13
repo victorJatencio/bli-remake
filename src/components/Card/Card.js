@@ -6,7 +6,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Tooltip from '@material-ui/core/Tooltip';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
-function CardComponent() {
+function CardComponent({title, children}) {
+
   return (
     <div className="card">
       <Card className="card_element">
@@ -16,10 +17,10 @@ function CardComponent() {
                 <HelpOutlineIcon/>
             </Tooltip>
           </div>
-          <h4>Competitive Models</h4>
+          <h4>{title}</h4>
         </div>
         <CardContent>
-          <p>Content</p>
+          {children}
         </CardContent>
       </Card>
     </div>
