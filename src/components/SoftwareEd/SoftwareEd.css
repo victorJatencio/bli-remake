@@ -1,0 +1,23 @@
+.softwareEd {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.softwareEd::-webkit-scrollbar {
+  width: 6px;
+}
+
+.softwareEd::-webkit-scrollbar-track {
+  border: none;
+  background-color: #fff;
+}
+
+.softwareEd::-webkit-scrollbar-thumb {
+  border: none;
+  background-color: #dbdbdb;
+  border-radius: 10px;
+}
+
+.softwareEd::-webkit-scrollbar-thumb:hover {
+  background-color: #cac8c8;
+}

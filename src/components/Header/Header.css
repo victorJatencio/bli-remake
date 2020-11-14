@@ -4,8 +4,9 @@
 
   display: flex;
   justify-content: center;
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
   z-index: 999;
 }
 
@@ -68,5 +69,5 @@
 }
 
 .header__input::placeholder {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.3);
 }

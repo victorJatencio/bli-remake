@@ -8,7 +8,10 @@ import CardComponent from "../Card/Card";
 import CountryInput from "../CountryInput/CountryInput";
 import ProductNameInput from "../ProductNameInput/ProductNameInput";
 import ListItems from "../ListItems/ListItems";
-import { TwitterTimelineEmbed, TwitterShareButton, TwitterTweetEmbed } from "react-twitter-embed"; 
+import { TwitterTimelineEmbed } from "react-twitter-embed";
+import TextField from '@material-ui/core/TextField';
+import SearchIcon from '@material-ui/icons/Search';
+import SoftwareEd from "../SoftwareEd/SoftwareEd";
 
 function Maindash() {
 
@@ -34,9 +37,23 @@ function Maindash() {
             options={{ height: 400 }}
           />
         </CardComponent>
-        <CardComponent title="Favorites"/>
-        <CardComponent title="Software Education"/>
-        <CardComponent title="Part Search"/>
+
+        <CardComponent title="Favorites" footer={true}>
+          <ListItems/>
+        </CardComponent>
+
+        <CardComponent title="Software Education">
+          <SoftwareEd/>
+        </CardComponent>
+
+        <CardComponent title="Part Search">
+          <form className="search__form" noValidate autoComplete="off">
+            <TextField id="standard-basic" label="Enter Part Number #" />
+            <SearchIcon/>
+          </form>
+          <ListItems/>
+        </CardComponent>
+
         <CardComponent title="Latest Awards"/>
       </div>
     </div>
