@@ -9,6 +9,14 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
+import SoftwareIco from "../../images/computer-screen.svg";
+import HeartIco from "../../images/heartbeat.svg";
+import StudyIco from "../../images/study.svg";
+import VerifiedIco from "../../images/verified.svg";
+import CloudStorageIco from "../../images/cloud-storage.svg";
+import RemoteIco from "../../images/remote.svg";
+
+
 function SoftwareEd() {
   return (
     <div className="softwareEd">
@@ -16,7 +24,7 @@ function SoftwareEd() {
         <ListItem alignItems="flex-start">
 
           <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar variant="square" alt="Remy Sharp" src={SoftwareIco} />
           </ListItemAvatar>
 
           <ListItemText
@@ -40,7 +48,7 @@ function SoftwareEd() {
         <ListItem alignItems="flex-start">
 
           <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar variant="square" alt="Remy Sharp" src={HeartIco} />
           </ListItemAvatar>
 
           <ListItemText
@@ -64,7 +72,7 @@ function SoftwareEd() {
         <ListItem alignItems="flex-start">
 
           <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar variant="square" alt="Remy Sharp" src={StudyIco} />
           </ListItemAvatar>
 
           <ListItemText
@@ -88,7 +96,7 @@ function SoftwareEd() {
         <ListItem alignItems="flex-start">
 
           <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar variant="square" alt="Remy Sharp" src={VerifiedIco} />
           </ListItemAvatar>
 
           <ListItemText
@@ -112,7 +120,7 @@ function SoftwareEd() {
         <ListItem alignItems="flex-start">
 
           <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar variant="square" alt="Remy Sharp" src={CloudStorageIco} />
           </ListItemAvatar>
 
           <ListItemText
@@ -136,7 +144,7 @@ function SoftwareEd() {
         <ListItem alignItems="flex-start">
 
           <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar variant="square" alt="Remy Sharp" src={RemoteIco} />
           </ListItemAvatar>
 
           <ListItemText

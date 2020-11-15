@@ -29,3 +29,7 @@
 .search__form > .MuiFormControl-root {
   width: 100%;
 }
+
+.card__media {
+  height: 200px;
+}

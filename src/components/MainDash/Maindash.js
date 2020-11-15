@@ -12,6 +12,7 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 import SoftwareEd from "../SoftwareEd/SoftwareEd";
+import Button from '@material-ui/core/Button';
 
 function Maindash() {
 
@@ -38,11 +39,11 @@ function Maindash() {
           />
         </CardComponent>
 
-        <CardComponent title="Favorites" footer={true}>
+        <CardComponent title="Favorites" favFooter={true}>
           <ListItems/>
         </CardComponent>
 
-        <CardComponent title="Software Education">
+        <CardComponent title="Software Education" SoEdFooter={true}>
           <SoftwareEd/>
         </CardComponent>
 
@@ -54,7 +55,16 @@ function Maindash() {
           <ListItems/>
         </CardComponent>
 
-        <CardComponent title="Latest Awards"/>
+        <CardComponent title="Latest Awards" awardsFooter={true} media={true}>
+          
+          <Button variant="outlined" color="primary">
+            Read More
+          </Button>
+          <form className="search__form" noValidate autoComplete="off">
+            <TextField id="standard-basic" label="Choose Award" />
+          </form>
+          <SoftwareEd/>
+        </CardComponent>
       </div>
     </div>
   )
