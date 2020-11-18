@@ -1,7 +1,6 @@
 .card {
   flex: 0.49;
   min-width: 350px;
-  margin: 10px 0;
 }
 
 .card__utilities {

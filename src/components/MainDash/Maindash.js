@@ -3,18 +3,16 @@ import "./Maindash.css";
 
 import BigHero from "../BigHero/BigHero";
 import WidgetNav from "../WidgetNav/WidgetNav";
-import CardComponent from "../Card/Card";
+import CompetitiveModels from "../CompetitiveModels/CompetitiveModels";
 
-import CountryInput from "../CountryInput/CountryInput";
-import ProductNameInput from "../ProductNameInput/ProductNameInput";
-import ListItems from "../ListItems/ListItems";
-import { TwitterTimelineEmbed } from "react-twitter-embed";
-import TextField from '@material-ui/core/TextField';
-import SearchIcon from '@material-ui/icons/Search';
-import SoftwareEd from "../SoftwareEd/SoftwareEd";
-import Button from '@material-ui/core/Button';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 function Maindash() {
+
+  const onDragEnd = (() => {
+    // the only one that is required
+    console.log('Hey')
+  });
 
   return (
     <div className="mainDash">
@@ -22,49 +20,46 @@ function Maindash() {
       <WidgetNav/>
 
       <div className="mainDash__cardGrid">
-        <CardComponent title="Competitive Models">
-          <CountryInput/>
-          <ProductNameInput/>
-        </CardComponent>
-
-        <CardComponent title="Recently Viewed">
-          <ListItems/>
-        </CardComponent>
-
-        <CardComponent title="Twitter Feed">
-          <TwitterTimelineEmbed
-            sourceType="profile"
-            screenName="KeypointIntel"
-            options={{ height: 400 }}
-          />
-        </CardComponent>
-
-        <CardComponent title="Favorites" favFooter={true}>
-          <ListItems/>
-        </CardComponent>
-
-        <CardComponent title="Software Education" SoEdFooter={true}>
-          <SoftwareEd/>
-        </CardComponent>
-
-        <CardComponent title="Part Search">
-          <form className="search__form" noValidate autoComplete="off">
-            <TextField id="standard-basic" label="Enter Part Number #" />
-            <SearchIcon/>
-          </form>
-          <ListItems/>
-        </CardComponent>
-
-        <CardComponent title="Latest Awards" awardsFooter={true} media={true}>
-          
-          <Button variant="outlined" color="primary">
-            Read More
-          </Button>
-          <form className="search__form" noValidate autoComplete="off">
-            <TextField id="standard-basic" label="Choose Award" />
-          </form>
-          <SoftwareEd/>
-        </CardComponent>
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable droppableId="droppable-1">
+            {(provided, _) => (
+              <div
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+              >
+                <Draggable draggableId="draggable-1" index={0}>
+                  {(provided, _) => (
+                    <div
+                    className="draggable__item" 
+                    ref={provided.innerRef} 
+                    {...provided.draggableProps}>
+                      <div className="draggable__handle"
+                      {...provided.dragHandleProps}>
+                        x
+                      </div>
+                      <CompetitiveModels />
+                    </div>
+                  )}
+                </Draggable>
+                <Draggable draggableId="draggable-2" index={1}>
+                  {(provided, _) => (
+                    <div
+                    className="draggable__item" 
+                    ref={provided.innerRef} 
+                    {...provided.draggableProps}>
+                      <div className="draggable__handle"
+                      {...provided.dragHandleProps}>
+                        x
+                      </div>
+                      <CompetitiveModels />
+                    </div>
+                  )}
+                </Draggable>
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
       </div>
     </div>
   )

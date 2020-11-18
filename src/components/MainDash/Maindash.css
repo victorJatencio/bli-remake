@@ -8,3 +8,33 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+.grid {
+  position: relative;
+  width: 100%;
+}
+
+.item {
+  display: block;
+  position: absolute;
+  width: auto;
+  min-height: 100px;
+  z-index: 1;
+  color: #555;
+}
+
+.item-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.draggable__item {
+  position: relative;
+}
+.draggable__handle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}

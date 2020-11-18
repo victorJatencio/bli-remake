@@ -7,8 +7,9 @@ import Tooltip from '@material-ui/core/Tooltip';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import Button from '@material-ui/core/Button';
 import CardMedia from '@material-ui/core/CardMedia';
+import DragHandleIcon from '@material-ui/icons/DragHandle';
 
-function CardComponent({title, children, favFooter, SoEdFooter, awardsFooter, media}) {
+function CardComponent({title, children,favFooter, SoEdFooter, awardsFooter, media}) {
 
 
   return (
@@ -19,6 +20,7 @@ function CardComponent({title, children, favFooter, SoEdFooter, awardsFooter, me
             <Tooltip title="Text" placement="top">
                 <HelpOutlineIcon/>
             </Tooltip>
+            <DragHandleIcon/>
           </div>
           <h4>{title}</h4>
         </div>
