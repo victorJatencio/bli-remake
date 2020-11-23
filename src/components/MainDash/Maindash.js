@@ -1,18 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Maindash.css";
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import BigHero from "../BigHero/BigHero";
 import WidgetNav from "../WidgetNav/WidgetNav";
 import CompetitiveModels from "../CompetitiveModels/CompetitiveModels";
+import RecentlyViewed from "../RecentlyViewed/RecentlyViewed";
+import TwitterFeed from "../TwitterFeed/TwitterFeed";
+import Favorites from "../Favorites/Favorites";
+import SoftwareEd from "../SoftwareEd/SoftwareEd";
+import PartSearch from "../PartSearch/PartSearch";
+import LatestAwards from "../LatestAwards/LatestAwards";
 
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+const cardComponents = [
+  {
+    id: 1,
+    component: <CompetitiveModels />
+  },
+  {
+    id: 2,
+    component: <RecentlyViewed />
+  },
+  {
+    id: 3,
+    component: <TwitterFeed />
+  },
+  {
+    id: 4,
+    component: <Favorites />
+  },
+  {
+    id: 5,
+    component: <SoftwareEd />
+  },
+  {
+    id: 6,
+    component: <PartSearch />
+  },
+  {
+    id: 7,
+    component: <LatestAwards />
+  }
+];
 
 function Maindash() {
 
-  const onDragEnd = (() => {
-    // the only one that is required
-    console.log('Hey')
-  });
+  const [cards, updateCards] = useState(cardComponents);
+
+  function handleOnDragEnd(result) {
+    if( !result.destination ) return;
+    const items = Array.from(cards);
+    const [reorderedItems] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItems);
+
+    updateCards(items);
+  }
 
   return (
     <div className="mainDash">
@@ -20,43 +62,31 @@ function Maindash() {
       <WidgetNav/>
 
       <div className="mainDash__cardGrid">
-        <DragDropContext onDragEnd={onDragEnd}>
+        <DragDropContext onDragEnd={handleOnDragEnd}>
           <Droppable droppableId="droppable-1">
-            {(provided, _) => (
-              <div
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-              >
-                <Draggable draggableId="draggable-1" index={0}>
-                  {(provided, _) => (
-                    <div
-                    className="draggable__item" 
-                    ref={provided.innerRef} 
-                    {...provided.draggableProps}>
-                      <div className="draggable__handle"
-                      {...provided.dragHandleProps}>
-                        x
-                      </div>
-                      <CompetitiveModels />
-                    </div>
-                  )}
-                </Draggable>
-                <Draggable draggableId="draggable-2" index={1}>
-                  {(provided, _) => (
-                    <div
-                    className="draggable__item" 
-                    ref={provided.innerRef} 
-                    {...provided.draggableProps}>
-                      <div className="draggable__handle"
-                      {...provided.dragHandleProps}>
-                        x
-                      </div>
-                      <CompetitiveModels />
-                    </div>
-                  )}
-                </Draggable>
+            {(provided) => (
+
+              <div {...provided.droppableProps} ref={provided.innerRef}>
+                {
+                  cards.map(({id, component}, index) => (
+                  
+                      <Draggable key={id} draggableId={`${id}`} index={index}>
+
+                        {(provided, _) => (
+                          <div className="mainCard__container" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                        
+                            { component }
+                            
+                          </div>
+                        )}
+
+                      </Draggable>
+                    
+                  ))
+                }
                 {provided.placeholder}
               </div>
+
             )}
           </Droppable>
         </DragDropContext>

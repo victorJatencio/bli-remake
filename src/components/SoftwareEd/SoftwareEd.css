@@ -1,4 +1,4 @@
-.softwareEd {
+/*.softwareEd {
   height: 200px;
   overflow-y: scroll;
 }
@@ -21,3 +21,4 @@
 .softwareEd::-webkit-scrollbar-thumb:hover {
   background-color: #cac8c8;
 }
+*/
