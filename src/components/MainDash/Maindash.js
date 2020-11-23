@@ -12,33 +12,47 @@ import SoftwareEd from "../SoftwareEd/SoftwareEd";
 import PartSearch from "../PartSearch/PartSearch";
 import LatestAwards from "../LatestAwards/LatestAwards";
 
+import Tooltip from '@material-ui/core/Tooltip';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import DragHandleIcon from '@material-ui/icons/DragHandle';
+
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+
 const cardComponents = [
   {
     id: 1,
+    title: "Competitive Models",
     component: <CompetitiveModels />
   },
   {
     id: 2,
+    title: "Recently Viewed",
     component: <RecentlyViewed />
   },
   {
     id: 3,
+    title: "Twitter Feed",
     component: <TwitterFeed />
   },
   {
     id: 4,
+    title: "Favorites ",
     component: <Favorites />
   },
   {
     id: 5,
+    title: "Software Education",
     component: <SoftwareEd />
   },
   {
     id: 6,
+    title: "Part Search",
     component: <PartSearch />
   },
   {
     id: 7,
+    title: "Latest Awards",
     component: <LatestAwards />
   }
 ];
@@ -73,9 +87,21 @@ function Maindash() {
                       <Draggable key={id} draggableId={`${id}`} index={index}>
 
                         {(provided, _) => (
-                          <div className="mainCard__container" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                        
-                            { component }
+                          <div className="mainCard__container" {...provided.draggableProps} ref={provided.innerRef}>
+                            <Card className="card_element">
+                              <div className="card__headerSection" {...provided.dragHandleProps}>
+                              <div className="card__utilities">
+                                <Tooltip title="Text" placement="top">
+                                    <HelpOutlineIcon/>
+                                </Tooltip>
+                                <DragHandleIcon/>
+                              </div>
+                              <h4>Title</h4>
+                              </div>
+                              <CardContent>
+                                { component }
+                              </CardContent>
+                            </Card>
                             
                           </div>
                         )}

@@ -1,7 +1,6 @@
 import React from 'react';
 import "./LatestAwards.css";
 
-import Card from "../Card/Card";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import List from '@material-ui/core/List';
@@ -14,7 +13,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 function LatestAwards() {
   return (
     <div className="latestAwards">
-      <Card title="Latest Awards">
+      
         <CardMedia
           className="card__media"
           image="https://www.buyerslab.com/bliQ/images/ads/COVID-banner.jpg"
@@ -58,7 +57,7 @@ function LatestAwards() {
             View Preffered
           </Button>
         </div>
-      </Card>
+      
     </div>
   )
 }

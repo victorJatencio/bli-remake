@@ -1,7 +1,6 @@
 import React from 'react';
 import "./Favorites.css";
 
-import Card from "../Card/Card";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -11,7 +10,6 @@ import Button from '@material-ui/core/Button';
 function Favorites() {
   return (
     <div className="favorites">
-      <Card title="Favorites">
         <List>
           <ListItem button>
               <ListItemText primary="Lab Test Report: I.R.I.S. Readiris Corporate 17"/>
@@ -42,7 +40,6 @@ function Favorites() {
             Sort by name
           </Button>
         </div>
-      </Card>
     </div>
   )
 }

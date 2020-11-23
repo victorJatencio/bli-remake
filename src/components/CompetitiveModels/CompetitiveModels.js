@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import "./CompetitiveModels.css";
 
-import Card from "../Card/Card";
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
@@ -21,7 +20,6 @@ function CompetitiveModels() {
 
   return (
     <div className="competitiveModels">
-      <Card title="Competitive Models">
         <div className="country__input">
           <FormControl className="countryInput__form">
             <InputLabel id="select-country">Country</InputLabel>
@@ -58,7 +56,6 @@ function CompetitiveModels() {
           </FormControl>
         </div>
 
-      </Card>
     </div>
   )
 }

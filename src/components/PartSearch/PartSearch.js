@@ -1,7 +1,6 @@
 import React from 'react';
 import "./PartSearch.css";
 
-import Card from "../Card/Card";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -12,7 +11,7 @@ import SearchIcon from '@material-ui/icons/Search';
 function PartSearch() {
   return (
     <div className="partSearch">
-      <Card title="Part Search">
+      
         <form className="search__form" noValidate autoComplete="off">
           <TextField id="standard-basic" label="Enter Part Number #" />
           <SearchIcon/>
@@ -39,7 +38,6 @@ function PartSearch() {
               <ListItemText primary="Konica Minolta Personalize"/>
           </ListItem>
         </List>
-      </Card>
     </div>
   )
 }

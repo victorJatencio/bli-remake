@@ -1,7 +1,6 @@
 import React from 'react';
 import "./SoftwareEd.css";
 
-import Card from "../Card/Card";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
@@ -22,7 +21,7 @@ import RemoteIco from "../../images/remote.svg";
 function SoftwareEd() {
   return (
     <div className="softwareEd">
-      <Card title="Software Education">
+      
         <List className="softwareEd__list">
           <ListItem alignItems="flex-start">
 
@@ -174,7 +173,7 @@ function SoftwareEd() {
             See More
           </Button>
         </div>
-      </Card>
+      
     </div>
   )
 }
