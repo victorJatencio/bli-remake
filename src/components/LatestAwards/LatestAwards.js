@@ -8,6 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import CardMedia from '@material-ui/core/CardMedia';
+import CardFooter from '../CardFooter/CardFooter';
 
 
 function LatestAwards() {
@@ -49,14 +50,14 @@ function LatestAwards() {
           </List>
         </div>
 
-        <div className="footer">
+        <CardFooter>
           <Button href="#text-buttons" color="primary">
             View All
           </Button>
           <Button href="#text-buttons" color="primary">
             View Preffered
           </Button>
-        </div>
+        </CardFooter>
       
     </div>
   )

@@ -16,13 +16,14 @@ import StudyIco from "../../images/study.svg";
 import VerifiedIco from "../../images/verified.svg";
 import CloudStorageIco from "../../images/cloud-storage.svg";
 import RemoteIco from "../../images/remote.svg";
+import CardFooter from '../CardFooter/CardFooter';
 
 
 function SoftwareEd() {
   return (
     <div className="softwareEd">
-      
-        <List className="softwareEd__list">
+      <div className="softwareEd__list">
+        <List>
           <ListItem alignItems="flex-start">
 
             <ListItemAvatar>
@@ -167,12 +168,13 @@ function SoftwareEd() {
             />
           </ListItem>
         </List>
+      </div>
 
-        <div className="footer">
-          <Button href="#text-buttons" color="primary">
-            See More
-          </Button>
-        </div>
+      <CardFooter>
+        <Button href="#text-buttons" color="primary">
+          See More
+        </Button>
+      </CardFooter>
       
     </div>
   )

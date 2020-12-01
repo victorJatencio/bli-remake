@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import "./Maindash.css";
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import _ from "lodash";
+import {v4} from "uuid";
 
 import BigHero from "../BigHero/BigHero";
 import WidgetNav from "../WidgetNav/WidgetNav";
@@ -19,55 +21,79 @@ import DragHandleIcon from '@material-ui/icons/DragHandle';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-const cardComponents = [
-  {
-    id: 1,
-    title: "Competitive Models",
-    component: <CompetitiveModels />
-  },
-  {
-    id: 2,
-    title: "Recently Viewed",
-    component: <RecentlyViewed />
-  },
-  {
-    id: 3,
-    title: "Twitter Feed",
-    component: <TwitterFeed />
-  },
-  {
-    id: 4,
-    title: "Favorites ",
-    component: <Favorites />
-  },
-  {
-    id: 5,
-    title: "Software Education",
-    component: <SoftwareEd />
-  },
-  {
-    id: 6,
-    title: "Part Search",
-    component: <PartSearch />
-  },
-  {
-    id: 7,
-    title: "Latest Awards",
-    component: <LatestAwards />
-  }
-];
+
+const competitiveModels = {
+  id: v4(),
+  title: "Competitive Models",
+  component: <CompetitiveModels />
+}
+const recentlyViewed = {
+  id: v4(),
+  title: "Recently Viewed",
+  component: <RecentlyViewed />
+}
+const twitterFeed = {
+  id: v4(),
+  title: "Twitter Feed",
+  component: <TwitterFeed />
+}
+const favorites = {
+  id: v4(),
+  title: "Favorites",
+  component: <Favorites />
+}
+const softwareEd = {
+  id: v4(),
+  title: "Software Education",
+  component: <SoftwareEd />
+}
+const partSearch = {
+  id: v4(),
+  title: "Part Search",
+  component: <PartSearch />
+}
+const latestAwards = {
+  id: v4(),
+  title: "Latest Awards",
+  component: <LatestAwards />
+}
 
 function Maindash() {
 
-  const [cards, updateCards] = useState(cardComponents);
+  const [dstate, setDstate] = useState({
+    "leftCol": {
+      title: "Left Column",
+      items: [competitiveModels, twitterFeed, softwareEd, latestAwards]
+    },
+    "rightCol": {
+      title: "Right Column",
+      items: [recentlyViewed, favorites, partSearch]
+    }
+  })
 
-  function handleOnDragEnd(result) {
-    if( !result.destination ) return;
-    const items = Array.from(cards);
-    const [reorderedItems] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItems);
 
-    updateCards(items);
+  const handleDragEnd = ({destination, source}) => {
+    if(!destination) {
+      return
+    }
+
+    if(destination.index === source.index && destination.droppableId === source.droppableId) {
+      return
+    }
+
+    // Creating a copy of items before removing from state
+    const itemCopy = {...dstate[source.droppableId].items[source.index]}
+    setDstate(prev => {
+      prev = {...prev}
+
+      // Remove from previous items array
+      prev[source.droppableId].items.splice(source.index, 1)
+
+      // Adding to new items array location
+      prev[destination.droppableId].items.splice(destination.index, 0, itemCopy)
+
+      return prev
+    })
   }
 
   return (
@@ -76,45 +102,59 @@ function Maindash() {
       <WidgetNav/>
 
       <div className="mainDash__cardGrid">
-        <DragDropContext onDragEnd={handleOnDragEnd}>
-          <Droppable droppableId="droppable-1">
-            {(provided) => (
+        <DragDropContext onDragEnd={handleDragEnd}>
+          {_.map(dstate, (data, key) => {
+            return(
+              <div key={key} className="column">
+                <Droppable droppableId={key}>
+                  {(provided, snapshot) => {
+                    return(
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                        className={`droppable-col ${snapshot.isDraggingOver && 'dropping'}`}
+                      >
+                        {data.items.map((el, index) => {
+                          return(
+                            <Draggable key={el.id} index={index} draggableId={el.id}>
+                              {(provided) => {
+                                return(
+                                  <div
+                                    className="drag__item"
+                                    ref={provided.innerRef}
+                                    {...provided.draggableProps}
+                                  >
+                                    <Card>
+                                      <div className="card__headerSection">
+                                        <div className="card__utilities">
+                                          <Tooltip title="Text" placement="top">
+                                              <HelpOutlineIcon/>
+                                          </Tooltip>
+                                          <span {...provided.dragHandleProps}>
+                                            <DragHandleIcon/>
+                                          </span>
+                                        </div>
+                                        <h4>{el.title}</h4>
+                                      </div>
+                                      <CardContent>
+                                        {el.component}
+                                      </CardContent>
+                                    </Card>
 
-              <div {...provided.droppableProps} ref={provided.innerRef}>
-                {
-                  cards.map(({id, component}, index) => (
-                  
-                      <Draggable key={id} draggableId={`${id}`} index={index}>
-
-                        {(provided, _) => (
-                          <div className="mainCard__container" {...provided.draggableProps} ref={provided.innerRef}>
-                            <Card className="card_element">
-                              <div className="card__headerSection" {...provided.dragHandleProps}>
-                              <div className="card__utilities">
-                                <Tooltip title="Text" placement="top">
-                                    <HelpOutlineIcon/>
-                                </Tooltip>
-                                <DragHandleIcon/>
-                              </div>
-                              <h4>Title</h4>
-                              </div>
-                              <CardContent>
-                                { component }
-                              </CardContent>
-                            </Card>
-                            
-                          </div>
-                        )}
-
-                      </Draggable>
-                    
-                  ))
-                }
-                {provided.placeholder}
+                                  </div>
+                                )
+                              }}
+                            </Draggable>
+                          )
+                        })}
+                        {provided.placeholder}
+                      </div>
+                    )
+                  }}
+                </Droppable>
               </div>
-
-            )}
-          </Droppable>
+            )
+          })}
         </DragDropContext>
       </div>
     </div>

@@ -6,10 +6,12 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
+import CardFooter from '../CardFooter/CardFooter';
 
 function Favorites() {
   return (
     <div className="favorites">
+      <div className="favorites__content">
         <List>
           <ListItem button>
               <ListItemText primary="Lab Test Report: I.R.I.S. Readiris Corporate 17"/>
@@ -31,15 +33,16 @@ function Favorites() {
               <ListItemText primary="Konica Minolta Personalize"/>
           </ListItem>
         </List>
+      </div>
 
-        <div className="footer">
+        <CardFooter>
           <Button href="#text-buttons" color="primary">
             Sort by date
           </Button>
           <Button href="#text-buttons" color="primary">
             Sort by name
           </Button>
-        </div>
+        </CardFooter>
     </div>
   )
 }

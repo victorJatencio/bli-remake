@@ -6,7 +6,24 @@
   margin-top: 25px;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+}
+
+.drag__item {
+  margin-bottom: 25px;
+}
+
+.column {
+  max-width: 500px;
+  width: 100%;
+}
+
+.droppable-col {
+  width: 100%;
+  min-height: 100px;
+}
+
+.dropping {
+  outline: 3px dashed grey;
 }
 
 .grid {
@@ -37,4 +54,33 @@
   position: absolute;
   top: 10px;
   left: 10px;
+}
+
+.MuiCardContent-root {
+  padding: 0 !important;
+}
+
+.card__element {
+  display: inline-block;
+  margin: 0 0 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card__headerSection {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.card__utilities {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+  .mainDash__cardGrid {
+    column-width: 1;
+  }
 }
