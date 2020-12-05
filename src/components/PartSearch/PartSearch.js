@@ -13,7 +13,7 @@ function PartSearch() {
     <div className="partSearch">
       
         <form className="search__form" noValidate autoComplete="off">
-          <TextField id="standard-basic" label="Enter Part Number #" />
+          <TextField id="part-search" label="Enter Part Number #" />
           <SearchIcon/>
         </form>
 

@@ -1,0 +1,15 @@
+.card__media {
+  height: 200px;
+  margin-bottom: 20px;
+}
+.card__content {
+  padding: 15px;
+}
+
+.search__form {
+  margin-top: 15px;
+}
+.search__form,
+.search__form > div {
+  width: 100%;
+}

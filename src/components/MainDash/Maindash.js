@@ -59,7 +59,6 @@ const latestAwards = {
 }
 
 function Maindash() {
-
   const [dstate, setDstate] = useState({
     "leftCol": {
       title: "Left Column",

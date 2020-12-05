@@ -11,12 +11,25 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
+import CardsSelection from "../CardsSelection/CardsSelection";
+
+import { useDataLayerValue } from "../../StateProvider";
+
 function WidgetNav() {
 
   const [value, setValue] = useState(0);
+  const [{expandWidgets}, dispatch] = useDataLayerValue();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const handleExpand = () => {
+    // setCollapsed(!collapsed);
+    dispatch({
+      type: 'SET_TABMENU',
+      expandWidgets: !expandWidgets
+    })
   };
 
   return (
@@ -38,9 +51,13 @@ function WidgetNav() {
           <Tab icon={<SettingsOutlinedIcon />} label="Settings" />
         </Tabs>
 
-        <IconButton color="primary" aria-label="add an alarm">
+        <IconButton onClick={handleExpand} color="primary" aria-label="add an alarm">
           <MoreVertIcon />
         </IconButton>
+      </div>
+
+      <div className={expandWidgets ? 'widgetNav__dinamic expandWidget' : 'widgetNav__dinamic'}>
+        <CardsSelection/>
       </div>
     </div>
   )

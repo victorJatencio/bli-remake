@@ -16,3 +16,17 @@
 .widgetNav__container > h3 {
   margin-right: 30px;
 }
+
+.widgetNav__dinamic {
+  height: 0;
+  overflow: hidden;
+}
+
+/* Dinamick class to expand widget nav bar */
+.expandWidget {
+  height: auto;
+  background-color: #fff;
+  border-top: 1px solid lightgray;
+  padding: 16px;
+  overflow: hidden;
+}

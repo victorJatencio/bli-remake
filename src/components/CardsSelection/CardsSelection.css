@@ -1,0 +1,9 @@
+.cardsSection > div {
+  display: flex !important;
+}
+
+.cardsCol {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

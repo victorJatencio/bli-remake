@@ -1,5 +1,17 @@
 export const initialState = {
-  collapsed: false
+  collapsed: false,
+  expandWidgets: false,
+  check: {
+    competitiveModels: true,
+    recentlyViewed: true,
+    favorites: true,
+    twitter: true,
+    softwareEd: true,
+    news: true,
+    latestAwards: true,
+    recentlyPublished: true,
+    all: true,
+  }
 }
 
 const reducer = (state, action) => {
@@ -10,6 +22,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         collapsed: action.collapsed
+      }
+    case 'SET_TABMENU':
+      return {
+        ...state,
+        expandWidgets: action.expandWidgets
+      }
+    case 'SET_CHECK':
+      return {
+        ...state,
+        check: action.check
       }
     default:
       return state;
